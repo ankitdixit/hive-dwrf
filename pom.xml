@@ -25,7 +25,7 @@
 
     <groupId>com.facebook.hive</groupId>
     <artifactId>hive-dwrf</artifactId>
-    <version>0.8.2</version>
+    <version>0.8.2-azure-blobfs-SNAPSHOT</version>
 
     <name>hive-dwrf</name>
     <description>DWRF file format for Hive</description>
@@ -44,7 +44,7 @@
     <scm>
         <connection>scm:git:git://github.com/facebook/hive-dwrf.git</connection>
         <url>https://github.com/facebook/hive-dwrf</url>
-        <tag>0.8.2</tag>
+        <tag>0.8.2-azure-blobfs</tag>
     </scm>
 
     <properties>
@@ -54,6 +54,7 @@
         <air.check.skip-modernizer>true</air.check.skip-modernizer>
         <air.check.skip-license>true</air.check.skip-license>
         <air.javadoc.lint>-missing</air.javadoc.lint>
+	<shadeBase>com.facebook.hive.orc.\$internal</shadeBase>
     </properties>
 
     <dependencies>
@@ -68,7 +69,6 @@
             <groupId>com.facebook.presto.hive</groupId>
             <artifactId>hive-apache</artifactId>
             <version>0.8</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -160,15 +160,30 @@
                             <shadeSourcesContent>true</shadeSourcesContent>
                             <dependencyReducedPomLocation>${project.build.directory}/pom.xml</dependencyReducedPomLocation>
                             <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
-                            <artifactSet>
-                                <includes>
-                                    <include>com.google.protobuf:protobuf-java</include>
-                                </includes>
-                            </artifactSet>
                             <relocations>
                                 <relocation>
-                                    <pattern>com.google.protobuf</pattern>
+				    <pattern>com.google.protobuf</pattern>
                                     <shadedPattern>com.facebook.hive.orc.\$internal.protobuf</shadedPattern>
+                                </relocation>
+                                <relocation>
+				    <pattern>io</pattern>
+                                    <shadedPattern>com.facebook.hive.orc.\$internal.io</shadedPattern>
+                                </relocation>
+                                <relocation>
+				    <pattern>it</pattern>
+                                    <shadedPattern>com.facebook.hive.orc.\$internal.it</shadedPattern>
+                                </relocation>
+                                <relocation>
+				    <pattern>javax</pattern>
+                                    <shadedPattern>com.facebook.hive.orc.\$internal.javax</shadedPattern>
+                                </relocation>
+                                <relocation>
+				    <pattern>parquet</pattern>
+                                    <shadedPattern>com.facebook.hive.orc.\$internal.parquet</shadedPattern>
+                                </relocation>
+                                <relocation>
+				    <pattern>org</pattern>
+                                    <shadedPattern>com.facebook.hive.orc.\$internal.org</shadedPattern>
                                 </relocation>
                             </relocations>
                             <filters>
