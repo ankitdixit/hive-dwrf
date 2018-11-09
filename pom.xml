@@ -25,7 +25,7 @@
 
     <groupId>com.facebook.hive</groupId>
     <artifactId>hive-dwrf</artifactId>
-    <version>0.8.2-azure-blobfs</version>
+    <version>0.8.2-azure-blobfs-SNAPSHOT</version>
 
     <name>hive-dwrf</name>
     <description>DWRF file format for Hive</description>
