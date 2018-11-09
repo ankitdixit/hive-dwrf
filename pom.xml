@@ -25,7 +25,7 @@
 
     <groupId>com.facebook.hive</groupId>
     <artifactId>hive-dwrf</artifactId>
-    <version>0.8.2-azure-blobfs-SNAPSHOT</version>
+    <version>0.8.2-azure-blobfs</version>
 
     <name>hive-dwrf</name>
     <description>DWRF file format for Hive</description>
@@ -217,8 +217,8 @@
                 <gpg.keyname>${env.GPG_KEYNAME}</gpg.keyname>
                 <gpg.passphrase>c@n0py123</gpg.passphrase>
                 <gpg.defaultKeyring>false</gpg.defaultKeyring>
-                <gpg.publicKeyring>${env.GPG_DIR}/pubring.gpg</gpg.publicKeyring>
-                <gpg.secretKeyring>${env.GPG_DIR}/secring.gpg</gpg.secretKeyring>
+                <gpg.publicKeyring>~/.gnupg/pubring.gpg</gpg.publicKeyring>
+                <gpg.secretKeyring>~/.gnupg/secring.gpg</gpg.secretKeyring>
             </properties>
             <repositories>
                 <repository>
