@@ -194,6 +194,10 @@
 				    <pattern>org</pattern>
                                     <shadedPattern>com.facebook.hive.orc.\$internal.org</shadedPattern>
                                 </relocation>
+                                <relocation>
+				    <pattern>com.google</pattern>
+                                    <shadedPattern>com.facebook.hive.orc.\$internal.com.google</shadedPattern>
+                                </relocation>
                             </relocations>
                             <filters>
                                 <filter>
